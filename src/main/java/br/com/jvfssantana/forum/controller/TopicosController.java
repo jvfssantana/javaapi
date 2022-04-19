@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.jvfssantana.forum.controller.dto.TopicoDTO;
 import br.com.jvfssantana.forum.modelo.Curso;
 import br.com.jvfssantana.forum.modelo.Topico;
 
@@ -13,10 +14,10 @@ import br.com.jvfssantana.forum.modelo.Topico;
 public class TopicosController {
 
 	@RequestMapping("/topicos")
-	public List<Topico> lista() {
+	public List<TopicoDTO> lista() {
 		
 		Topico topico = new Topico("Dúvida java", "Preciso de ajuda com um erro de nullpointer", new Curso("Java", "Programação"));
-		return Arrays.asList(topico, topico, topico);
+		return TopicoDTO.converter(Arrays.asList(topico, topico, topico));
 	}
 	
 }
